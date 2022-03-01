@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import json
-
 from prophet.serialize import model_from_json
 from scipy.special import inv_boxcox
 
