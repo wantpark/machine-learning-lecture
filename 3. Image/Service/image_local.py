@@ -20,4 +20,4 @@ img = image.load_img(image_path, target_size=(IMG_SIZE, IMG_SIZE))
 os.remove(image_path)  # Remove the cached file
 
 result = image_class.run(img)
-print(result)
+print('pred:', result)
