@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# start services
+service ssh start
+
+# check user
+if ! id -u guest1 > /dev/null 2>&1
+then
+    # add user
+    # id : guest<1 ~ 20>
+    # password : 1
+    for i in {1..20}
+    do
+        # adds user
+        useradd -m guest$i -s /bin/bash
+
+        # sets user password
+        echo -e "$i\n$i" | passwd guest$i
+    done
+
+    for i in {1..20}
+    do
+        # copy source code
+        cp -r machine-learning-lecture /home/guest$i
+        chown -R guest$i:guest$i /home/guest$i/machine-learning-lecture
+    done
+fi

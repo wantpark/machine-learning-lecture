@@ -4,7 +4,7 @@ from skimage.util import img_as_ubyte
 import socket
 
 
-HOST = "10.60.60.16"  # The server's hostname or IP address
+HOST = "192.168.55.1"  # The server's hostname or IP address
 PORT = 8000  # The port used by the server
 
 IMG_SIZE = 160
