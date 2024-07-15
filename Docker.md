@@ -60,3 +60,5 @@ sudo docker exec -it machine-learning /bin/bash
 
 Open "/usr/local/lib/python3.12/dist-packages/imgaug/imgaug.py" file, change line 2120 to:
 fig.canvas.manager.set_window_title("imgaug.imshow(%s)" % (image.shape,))
+
+sed -i 's/fig\.canvas\.set_window_title("imgaug\.imshow(%s)" % (image\.shape,))/fig\.canvas\.manager\.set_window_title("imgaug\.imshow(%s)" % (image\.shape,))/g' /usr/local/lib/python3.12/dist-packages/imgaug/imgaug.py

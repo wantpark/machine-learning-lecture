@@ -7,9 +7,9 @@ service ssh start
 if ! id -u guest1 > /dev/null 2>&1
 then
     # add user
-    # id : guest<1 ~ 20>
+    # id : guest<1 ~ 30>
     # password : 1
-    for i in {1..20}
+    for i in {1..30}
     do
         # adds user
         useradd -m guest$i -s /bin/bash
@@ -18,7 +18,7 @@ then
         echo -e "$i\n$i" | passwd guest$i
     done
 
-    for i in {1..20}
+    for i in {1..30}
     do
         # copy source code
         cp -r machine-learning-lecture /home/guest$i

@@ -28,6 +28,8 @@ RUN rm -rf /machine-learning-lecture/.git
 
 # set jupyter
 RUN echo 'c.Authenticator.allow_all = True' | tee -a /jupyterhub_config.py
+# bug fix for matplot
+RUN sed -i 's/fig\.canvas\.set_window_title("imgaug\.imshow(%s)" % (image\.shape,))/fig\.canvas\.manager\.set_window_title("imgaug\.imshow(%s)" % (image\.shape,))/g' /usr/local/lib/python3.12/dist-packages/imgaug/imgaug.py
 
 # service start ssh
 # add user
