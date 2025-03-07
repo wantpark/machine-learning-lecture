@@ -34,7 +34,7 @@ sudo docker build -t machine-learning --build-arg CPU=amd64 .
 ## 도커 이미지 실행
 
 ```shell
-sudo docker images --format="{{.Repository}} {{.ID}}" | grep "^machine-learning" | cut -d' ' -f2 | xargs sudo docker run -it -d -p 8000:8000 -p 2222:22 --name machine-learning
+sudo docker images --format="{{.Repository}} {{.ID}}" | grep "^machine-learning" | cut -d' ' -f2 | xargs sudo docker run -it -d -p 8000:8000 -p 2222:22 -p 7579:7579 --name machine-learning
 ```
 
 ## 도커 이미지 실행 완료 후 도커 이미지 저장
@@ -49,6 +49,13 @@ sudo docker tag <IMAGE ID> machine-learning
 
 ```shell
 sudo docker exec -it machine-learning /bin/bash
+```
+
+## MySQL
+
+```shell
+apt install mysql-server -y
+service mysql start
 ```
 
 ### 오픈소스 라이선스

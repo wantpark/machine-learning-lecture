@@ -54,9 +54,9 @@ mysql> exit
 ### Install Node.js
 
 ```shell
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 source ~/.bashrc
-nvm install 16
+nvm install 20
 ```
 
 ### Install Mobius
@@ -71,8 +71,9 @@ npm install
 
 ```shell
 vi mobius/mobiusdb.sql
-- CREATE DATABASE IF NOT EXISTS mobiusdb;
+CREATE DATABASE IF NOT EXISTS mobiusdb;
 USE mobiusdb;
+
 sudo mysql -u root -p < mobius/mobiusdb.sql
 vi mobius.js
 - line 25 conf.dbpass = "P@ssw0rd";

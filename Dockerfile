@@ -1,6 +1,5 @@
-ARG CPU
+ARG CPU=amd64
 FROM ${CPU}/ubuntu
-ARG CPU
 
 # install deb packages for machine learning
 RUN apt-get update
