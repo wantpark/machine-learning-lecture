@@ -11,7 +11,7 @@ https://www.docker.com
 ### 캐시 삭제 (option)
 
 ```shell
-sudo docker builder prune --all
+docker builder prune --all
 ```
 
 ### 에러 발생  (option)
@@ -24,38 +24,28 @@ rm ~/.docker/config.json
 
 ## 도커 이미지 만들기
 
-- CPU=amd64
-- CPU=arm64v8
-
 ```shell
-sudo docker build -t machine-learning --build-arg CPU=amd64 .
+docker build -t machine-learning .
 ```
 
 ## 도커 이미지 실행
 
 ```shell
-sudo docker images --format="{{.Repository}} {{.ID}}" | grep "^machine-learning" | cut -d' ' -f2 | xargs sudo docker run -it -d -p 8000:8000 -p 2222:22 -p 7579:7579 --name machine-learning
+docker images --format="{{.Repository}} {{.ID}}" | grep "^machine-learning" | cut -d' ' -f2 | xargs docker run -it -d -p 8000:8000 -p 2222:22 -p 7579:7579 --name machine-learning
 ```
 
 ## 도커 이미지 실행 완료 후 도커 이미지 저장
 
 ```shell
-sudo docker commit -m "complete" machine-learning
-sudo docker images
-sudo docker tag <IMAGE ID> machine-learning
+docker commit -m "complete" machine-learning
+docker images
+docker tag <IMAGE ID> machine-learning
 ```
 
 ## 실행 중인 도커 컨테이너 접속
 
 ```shell
-sudo docker exec -it machine-learning /bin/bash
-```
-
-## MySQL
-
-```shell
-apt install mysql-server -y
-service mysql start
+docker exec -it machine-learning /bin/bash
 ```
 
 ### 오픈소스 라이선스
